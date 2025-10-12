@@ -46,6 +46,7 @@ The final application utilizes **TLSv1.3** to wrap the socket connection, moving
 ## Setup and Execution
 
 ### Prerequisites
+It is important to have this prerequisites:
 1.  Ensure **Python 3.x** and the required libraries from the main `requirements.txt` are installed.
 2.  **Generate SSL Certificates:** You must generate the necessary files (`server-cert.pem`, `server-key.key`) before running the server.
 
@@ -60,5 +61,5 @@ The final application utilizes **TLSv1.3** to wrap the socket connection, moving
 2.  **Start Client(s):**
     ```bash
     python3 client.py
-    # Follow the prompt to enter a valid username.
+    # Follow the prompt to enter a valid username, you can run the script more times to simulate clients.
     ```
