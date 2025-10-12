@@ -2,6 +2,15 @@
 
 This project is a sophisticated demonstration of secure, multi-client messaging, implementing defense-in-depth security by utilizing TLS for transport security and a custom application layer for E2E message integrity.
 
+## Example of how the chat works
+
+| Action | Result |
+| :--- | :--- |
+| **Talking among clients** | After executing `server.py` and the clients you want with `client.py`. You can test to talk between clients.. <img width="1917" height="927" alt="image" src="https://github.com/user-attachments/assets/26b0198f-eba3-4658-84e7-f2587083a793" /> |
+| **If one user decides to leave** | <img width="628" height="528" alt="image" src="https://github.com/user-attachments/assets/09d693e9-2c37-4790-9543-af12006eab53" /> |
+| **Sending files** | <img width="1919" height="532" alt="image" src="https://github.com/user-attachments/assets/26a9ea46-9c28-4cdd-b775-5725d226fea8" />
+<img width="1919" height="529" alt="image" src="https://github.com/user-attachments/assets/f69ab97a-0843-47a7-8a9e-c95f483c144e" /> |
+
 ## Demonstration of Security: Before & After Analysis
 
 To highlight the value of security implementation, the project demonstrates a clear contrast between an insecure chat session (conceptualized) and the final, secured version using TLS.
