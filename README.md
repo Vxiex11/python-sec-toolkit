@@ -9,13 +9,13 @@ This repository is organized into three main pillars: Secure Communication, Offe
 Projects focused on implementing core cryptographic techniques to ensure data confidentiality and integrity.
 
     E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
-Secure Communication & Cryptography
+2. Secure Communication & Cryptography
 
     E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
 
-Offensive Network Discovery & Auditing
+3. Offensive Network Discovery & Auditing
 
-    A series of projects focused on understanding and mapping network topology, emphasizing legal and ethical use for self-auditing and penetration testing preparation
+A series of projects focused on understanding and mapping network topology, emphasizing legal and ethical use for self-auditing and penetration testing preparation
 
 Web & Application Defense (Future Focus)
 (This section will be populated with scripts and configurations focused on defensive security and hardening applications.)
@@ -27,8 +27,8 @@ Unauthorized use against third-party networks or systems is strictly prohibited.
 
 Getting Started
 Most projects in this repository are written in Python 3.
+Clone the repository:
 
-    Clone the repository:
     git clone https://github.com/Vxiex11/python-sec-toolkit
 
 Install dependencies:
@@ -36,7 +36,8 @@ Navigate to the specific project folder you wish to explore. Dependencies (like 
 Bash
 
 cd [your_project_folder]
-pip install -r requirements.txt
+
+    pip install -r requirements.txt
 
 Run the script:
 
