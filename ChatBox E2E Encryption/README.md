@@ -13,7 +13,8 @@ In a typical plain-text (unencrypted) chat application, anyone on the network ca
 | Action | Result (as seen by an attacker/auditor) |
 | :--- | :--- |
 | **Capture Traffic (Wireshark)** | We can intercept the message content in clear text, visible in the "Info" column or payload. <img width="1919" height="543" alt="image" src="https://github.com/user-attachments/assets/af3a16c9-dc41-4448-8abf-fae7e80e910f" /> |
-| **Extract Data** | An attacker can reconstruct and read the original message, proving the data's **confidentiality is compromised**. <img width="818" height="81" alt="image" src="https://github.com/user-attachments/assets/ce432884-46b6-4b8c-941f-016c3a0e2937" />|
+| **Extract Data** | An attacker can reconstruct and read the original message, proving the data's confidentiality is compromised. <img width="818" height="81" alt="image" src="https://github.com/user-attachments/assets/ce432884-46b6-4b8c-941f-016c3a0e2937" />|
+| **Data Inspection** | Convert the hexadecimal text (which is readable) into the bytes it represents. <img width="818" height="81" alt="image" src="https://github.com/user-attachments/assets/87dc6341-23b7-491d-b487-e497981e243e" />|
 
 This scenario proves the necessity of encryption for confidentiality.
 
@@ -23,9 +24,10 @@ The final application utilizes **TLSv1.3** to wrap the socket connection, moving
 
 | Action | Result (as seen by an attacker/auditor) |
 | :--- | :--- |
-| **TLS Implementation** | The server loads the certificate chain (`server-cert.pem`, `server-key.key`) and uses `context.wrap_socket` to upgrade the connection. |
-| **Capture Traffic (Wireshark)** | We intercept the packets, but the message content is now completely **encrypted ciphertext**. |
-| **Data Inspection** | Any copied value is unreadable, confirming the message is protected by **TLSv1.3**. |
+| **After generating an SSL Certificate**| You will have this files. <img width="653" height="45" alt="image" src="https://github.com/user-attachments/assets/d5d67d36-5a53-48a2-ba4b-b0cfe81f9589" /> |
+| **TLS Implementation** | The server loads the certificate chain (`server-cert.pem`, `server-key.key`) and uses `context.wrap_socket` to upgrade the connection. <img width="492" height="48" alt="image" src="https://github.com/user-attachments/assets/e636ccd2-2887-49b7-9f61-cd7c64300f61" />|
+| **Capture Traffic (Wireshark)** | We intercept the packets, but the message content is now completely **encrypted ciphertext**. <img width="1919" height="797" alt="image" src="https://github.com/user-attachments/assets/be457f04-17de-4207-a425-872a12130428" />|
+| **Data Inspection** | Any copied value is unreadable, confirming the message is protected by **TLSv1.3**. <img width="811" height="56" alt="image" src="https://github.com/user-attachments/assets/a80e0822-b72d-4f26-8b37-46755547de6c" />|
 
 ---
 
