@@ -1,0 +1,11 @@
+# Primary library for packet crafting, network analysis, and discovery tools 
+scapy>=2.4.5
+
+# Standard, secure library for implementing End-to-End (E2E) encryption logic
+cryptography>=3.4.7
+
+# Used for making HTTP requests (useful for future OWASP Top 10 defense/testing)
+requests>=2.25.1
+
+# Optional but common for cryptographic operations if 'cryptography' isn't used exclusively
+# pycryptodome>=3.10.1 
