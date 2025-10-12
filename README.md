@@ -7,8 +7,8 @@ This repository is organized into three main pillars: Secure Communication, Offe
 1. Secure Communication & Cryptography
 
 Projects focused on implementing core cryptographic techniques to ensure data confidentiality and integrity.
+E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
 
-    E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
 2. Secure Communication & Cryptography
 
     E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
@@ -41,4 +41,4 @@ cd [your_project_folder]
 
 Run the script:
 
-    python [script_name].py
+python [script_name].py
