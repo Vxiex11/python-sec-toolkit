@@ -35,6 +35,6 @@ To run the server with SSL/TLS enabled, you must first generate a self-signed ce
     ```bash
     openssl rsa -in server-key.key -out server-key.key
     ```
-    *(You will need to enter the original PEM pass phrase one final time.)*
+    *(You will need to enter the original PEM password one final time.)*
 
 After completing these steps, the `server-key.key` and `server-cert.pem` files should be placed in the appropriate directory (for example, `certs/`) for the server script to load.
