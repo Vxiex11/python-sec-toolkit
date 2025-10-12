@@ -11,9 +11,11 @@ E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implemen
 
 2. Secure Communication & Cryptography
 
-    E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
+E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
 
 3. Offensive Network Discovery & Auditing
+
+In the future, I will put some scripts about this specific topic.
 
 A series of projects focused on understanding and mapping network topology, emphasizing legal and ethical use for self-auditing and penetration testing preparation
 
