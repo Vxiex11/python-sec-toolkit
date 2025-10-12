@@ -1,6 +1,6 @@
 # SSL/TLS Certificate Setup for Transport Security
 
-This project uses **SSL/TLS** to secure the **transport layer** (the connection between the client and the server) and **Application-Layer Encryption (E2E)** for message content.
+This project uses **SSL/TLS** to secure the transport layer (the connection between the client and the server) and Application-Layer Encryption (E2E) for message content.
 
 To run the server with SSL/TLS enabled, you must first generate a self-signed certificate and an unencrypted private key.
 
