@@ -9,11 +9,7 @@ This repository is organized into three main pillars: Secure Communication, Offe
 Projects focused on implementing core cryptographic techniques to ensure data confidentiality and integrity.
 E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
 
-2. Secure Communication & Cryptography
-
-E2E Encrypted Chatbox: A proof-of-concept application demonstrating the implementation of end-to-end (E2E) encryption to guarantee message privacy and integrity in communications.
-
-3. Offensive Network Discovery & Auditing
+2. Offensive Network Discovery & Auditing
 
 In the future, I will put some scripts about this specific topic.
 
