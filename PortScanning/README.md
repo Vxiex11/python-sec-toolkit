@@ -28,12 +28,12 @@ Output (In my case):
 
 **CLI Options**
 
--t, --target       Target to scan (IP or hostname) — required
--p, --port         Ports to scan (range, comma list, or single port) — required
---no-head          Do not send HTTP HEAD to ports 80/8080
---probe-https      Attempt TLS handshake on port 443 and extract cert CN
---workers N        Number of concurrent worker threads (default: 70)
---timeout S        Socket timeout in seconds (default: 0.7)
+-t, --target       Target to scan (IP or hostname) — required.
+-p, --port         Ports to scan (range, comma list, or single port) — required.
+--no-head          Do not send HTTP HEAD to ports 80/8080.
+--probe-https      Attempt TLS handshake on port 443 and extract cert CN.
+--workers N        Number of concurrent worker threads (default: 70).
+--timeout S        Socket timeout in seconds (default: 0.7).
 
 
 If a banner is readable, you will see:
