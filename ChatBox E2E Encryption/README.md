@@ -21,7 +21,8 @@ In a typical plain-text (unencrypted) chat application, anyone on the network ca
 | Action | Result (as seen by an attacker/auditor) |
 | :--- | :--- |
 | **Capture Traffic (Wireshark)** | We can intercept the message content in clear text, visible in the "Info" column or payload. <img width="1919" height="543" alt="image" src="https://github.com/user-attachments/assets/af3a16c9-dc41-4448-8abf-fae7e80e910f" /> |
-| **Extract Data** | An attacker can reconstruct and read the original message, proving the data's confidentiality is compromised (Convert the hexadecimal text (which is readable) into the bytes it represents). <img width="818" height="81" alt="image" src="https://github.com/user-attachments/assets/ce432884-46b6-4b8c-941f-016c3a0e2937" />|
+| **Extract Data** | An attacker can reconstruct and read the original message, proving the data's confidentiality is compromised (Convert the hexadecimal text (which is readable) into the bytes it represents). 
+<img width="818" height="81" alt="image" src="https://github.com/user-attachments/assets/ce432884-46b6-4b8c-941f-016c3a0e2937" />|
 
 
 This scenario proves the necessity of encryption for confidentiality.
