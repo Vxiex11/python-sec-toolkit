@@ -14,7 +14,7 @@ Features:
 
 [+] Program created by Vxiex11 :)
 """
-import argparse
+import argparse # For creating user-friendly command-line interfaces
 import binascii
 import itertools
 import signal
@@ -25,16 +25,12 @@ import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from typing import Iterable, List, Tuple, Union
-from termcolor import colored
+from termcolor import colored # To add colors
 
 # Shared global state for open sockets and a lock to avoid races between threads
 open_sockets: List[socket.socket] = []
 open_sockets_lock = threading.Lock()
 
-
-# ---------------------------
-# Signal handler
-# ---------------------------
 def def_handler(sig, frame) -> None:
     """
     Signal handler for graceful shutdown (Ctrl+C).
@@ -55,13 +51,9 @@ def def_handler(sig, frame) -> None:
     raise SystemExit(0)
 
 
-# Register the Ctrl+C handler
-signal.signal(signal.SIGINT, def_handler)
+# Register the Ctrl+C handler -> If the user decide to finish the script
+signal.signal(signal.SIGINT, def_handler) 
 
-
-# ---------------------------
-# CLI parsing
-# ---------------------------
 def get_arguments() -> Tuple[str, str, bool, bool, int, float]:
     """
     Parse command-line arguments.
@@ -114,10 +106,6 @@ def get_arguments() -> Tuple[str, str, bool, bool, int, float]:
     args = parser.parse_args()
     return args.target, args.port, not args.no_head, args.probe_https, args.workers, args.timeout
 
-
-# --------------------------- #
-# Socket utilities
-# --------------------------- #
 def create_socket(timeout: float) -> socket.socket:
     """
     Create a TCP socket, set timeout and register it in the open_sockets list.
@@ -130,9 +118,6 @@ def create_socket(timeout: float) -> socket.socket:
         open_sockets.append(s)
     return s
 
-# --------------------------- #
-# Banner formatting
-# --------------------------- #
 def format_banner(data: bytes, max_len: int = 200) -> str:
     """
     Convert raw received bytes into a human-friendly banner string.
@@ -168,10 +153,6 @@ def format_banner(data: bytes, max_len: int = 200) -> str:
     lines = text.splitlines()
     return lines[0] if lines else text
 
-
-# ---------------------------
-# Port scanning worker
-# ---------------------------
 def port_scanner_main(port: int, host: str, send_head: bool, probe_https: bool, timeout: float) -> None:
     """
     Worker function executed by each thread to test a single port.
@@ -289,10 +270,6 @@ def port_scanner_main(port: int, host: str, send_head: bool, probe_https: bool, 
                 except ValueError:
                     pass
 
-
-# ---------------------------
-# Port list parsing
-# ---------------------------
 def parse_ports(ports_str: str) -> Iterable[int]:
     """
     Parse the user-supplied port string and return an iterable of port integers.
@@ -336,10 +313,6 @@ def parse_ports(ports_str: str) -> Iterable[int]:
         print(colored(f"[!] Invalid port specification: {ve}", "red"))
         sys.exit(1)
 
-
-# ---------------------------
-# Orchestrator: schedule workers
-# ---------------------------
 def scan_ports(target: str, ports: Iterable[int], send_head: bool, probe_https: bool, workers: int, timeout: float) -> None:
     """
     Resolve target and launch ThreadPoolExecutor to scan the given ports.
@@ -370,9 +343,7 @@ def scan_ports(target: str, ports: Iterable[int], send_head: bool, probe_https: 
             itertools.repeat(probe_https),
             itertools.repeat(timeout),
         )
-# ---------------------------
-# Main entrypoint
-# ---------------------------
+        
 def main() -> None:
     target, ports_str, send_head, probe_https, workers, timeout = get_arguments()
     ports = parse_ports(ports_str)
@@ -380,6 +351,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    # Print a blank line for cleaner terminal output before starting
-    print("")
+    print("") # Print a blank line for cleaner terminal output before starting
     main()
