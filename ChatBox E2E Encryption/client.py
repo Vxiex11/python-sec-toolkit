@@ -82,12 +82,11 @@ def exit_request(client_socket, username, window):
 def send_file(client_socket, file_path, text_widget, username):
     """
     Sends the content of a text file to all connected users.
-
     Args:
-        client_socket (socket): The connected client socket.
-        file_path (str): The path of the file to send.
-        text_widget (ScrolledText): The chat display area.
-        username (str): The user's username.
+        1) client_socket (socket): The connected client socket.
+        2) file_path (str): The path of the file to send.
+        3) text_widget (ScrolledText): The chat display area.
+        4) username (str): The user's username.
     """
 
     filename = os.path.basename(file_path)  # Extract only the file name
@@ -123,9 +122,9 @@ def add_file(client_socket, text_widget, username):
     """
     Opens a file selection dialog and sends the chosen file in a separate thread.
     Args:
-        client_socket (socket): The connected client socket.
-        text_widget (ScrolledText): The chat display area.
-        username (str): The user's username.
+        1) client_socket (socket): The connected client socket.
+        2) text_widget (ScrolledText): The chat display area.
+        3) username (str): The user's username.
     """
     # Ask the user to choose a file to send
     file_path = filedialog.askopenfilename(title="Select a file to send")
