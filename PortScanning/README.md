@@ -32,7 +32,7 @@ Output (In my case):
   2)  -p, --port         Ports to scan (range, comma list, or single port) — required.
   3)  --no-head          Do not send HTTP HEAD to ports 80/8080.
   4)  --probe-https      Attempt TLS handshake on port 443 and extract cert CN.
-  5)  --workers N        Number of concurrent worker threads (default: 70).
+  5)  --workers N        Number of concurrent worker threads (default: 70, consider your computer's specifications). 
   6)  --timeout S        Socket timeout in seconds (default: 0.7).
 
 If a banner is readable, you will see:
