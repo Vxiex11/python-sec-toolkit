@@ -16,7 +16,7 @@ Designed for learning, red-team/blue-team lab work, and small authorized network
 7) Clear, documented, and easy-to-read Python code
 
 **How to use it**
-
+[!] Important, In this example. I scan 30,000 ports, but I use 100 threads. You should consider your computer's specifications.
 ```bash
   python3 port_scanner_v2.py -t 192.168.100.1 -p 80-30000 --probe-https --workers 100 --timeout 1
 ```
