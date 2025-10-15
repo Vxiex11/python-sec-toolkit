@@ -1,11 +1,11 @@
-**TCP Port Scanner**
+# TCP Port Scanner
 
 A lightweight, well-documented TCP port scanner with optional HTTP HEAD probing and TLS certificate probing for port 443.
 Designed for learning, red-team/blue-team lab work, and small authorized network reconnaissance tasks.
 
 [!] Important: This tool is for educational and authorized testing only. Do not scan systems you do not own or do not have explicit permission to test. [!]
 
-Features
+**Features**
 
 1) Concurrent scanning using ThreadPoolExecutor
 2) Optional HTTP HEAD probe for ports 80 / 8080
@@ -15,7 +15,7 @@ Features
 6) CLI flags for workers, timeout, and probe options
 7) Clear, documented, and easy-to-read Python code
 
-# How to use it
+**How to use it**
 
 ```bash
   python3 port_scanner_v2.py -t 192.168.100.1 -p 80-30000 --probe-https --workers 100 --timeout 1
@@ -26,7 +26,7 @@ Output (In my case):
 [+] Port: 27998 is open
 ```
 
-# CLI Options
+**CLI Options**
 
 -t, --target       Target to scan (IP or hostname) — required
 -p, --port         Ports to scan (range, comma list, or single port) — required
@@ -35,7 +35,6 @@ Output (In my case):
 --workers N        Number of concurrent worker threads (default: 70)
 --timeout S        Socket timeout in seconds (default: 0.7)
 
-Output
 
 If a banner is readable, you will see:
 ```bash
