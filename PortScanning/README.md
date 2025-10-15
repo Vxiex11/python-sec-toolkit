@@ -1,4 +1,4 @@
-#**TCP Port Scanner**
+**TCP Port Scanner**
 
 A lightweight, well-documented TCP port scanner with optional HTTP HEAD probing and TLS certificate probing for port 443.
 Designed for learning, red-team/blue-team lab work, and small authorized network reconnaissance tasks.
