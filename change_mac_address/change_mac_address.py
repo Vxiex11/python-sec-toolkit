@@ -34,7 +34,7 @@ def check_root():
         print(colored(f"\n[!] Error: This script requires root privileges. Run it as sudo or as root", 'red'))
         exit()
     else:
-        print(colored(f"\n[+] Root privileges verificated, working...\n\n", 'greem'))
+        print(colored(f"\n[+] Root privileges verificated, working...\n\n", 'green'))
 
 def get_interfaces():
     interfaces = psutil.net_if_addrs().keys() # Library psutil allows us to view the user's network interfaces
