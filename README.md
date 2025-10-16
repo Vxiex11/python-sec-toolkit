@@ -39,4 +39,4 @@ cd [your_project_folder]
 
 Run the script:
 
-python [script_name].py
+    python [script_name].py
