@@ -12,8 +12,6 @@ Features:
 - CLI options for workers, timeout, disabling HEAD probes, and enabling TLS probe.
 
 [!] WARNING: Only scan systems you own or have explicit permission to scan. [!]
-
-[+] Program created by Vxiex11 :)
 """
 import argparse # For creating user-friendly command-line interfaces
 import binascii
