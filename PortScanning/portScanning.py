@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 TCP Port Scanner with optional HTTP HEAD and TLS certificate probing.
+Author: Vxiex11
 
 Features:
 - Concurrent port scanning using ThreadPoolExecutor.
