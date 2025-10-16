@@ -6,9 +6,9 @@ A secure and lightweight Python tool to change your **MAC address** on Linux sys
 
 - Checks for **root privileges**
 - Validates **network interface** and **MAC address format**
-- Uses `subprocess` securely (prevents command injection)
-- Displays colorful output with `termcolor`
-- Lists system interfaces automatically via `psutil`
+- Uses **subprocess** securely (prevents command injection)
+- Displays colorful output with termcolor
+- Lists system interfaces automatically via **psutil**
 
 ## Requirements
 
