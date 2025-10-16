@@ -1,5 +1,14 @@
-
 #!/usr/bin/env python3
+"""
+Author: Vxiex11
+Description: 
+    A simple and secure MAC address changer for Linux systems using Python.
+    It validates inputs, ensures root privileges, and uses subprocess safely 
+    to avoid command injection vulnerabilities.
+
+Usage Example:
+    sudo python3 mac_changer.py -i eth0 -m AA:BB:CC:DD:EE:FF
+"""
 
 import argparse
 import re
@@ -8,67 +17,106 @@ from termcolor import colored
 import psutil
 import os
 
-def get_arguments():
 
-    parser = argparse.ArgumentParser(description="Mac Changer")
+def get_arguments():
+    """
+    Parse and return command-line arguments.
+    
+    Returns:
+        argparse.Namespace: Contains parsed arguments (interface and MAC address).
+    """
+    parser = argparse.ArgumentParser(description="Change the MAC address of a network interface.")
     parser.add_argument(
-        "-i",
-        "--interface",
+        "-i", "--interface",
         dest="interface",
         required=True,
-        help="Name of your interface",
+        help="Name of your network interface (e.g., eth0, wlan0)."
     )
     parser.add_argument(
-        "-m",
-        "--mac",
+        "-m", "--mac",
         dest="mac_address",
         required=True,
-        help="Mac address to change (Eg: AA:AA:AA:AA:AA:AA)"
+        help="New MAC address to assign (format: AA:BB:CC:DD:EE:FF)."
     )
     
     return parser.parse_args()
 
+
 def check_root():
-    
-    if os.getuid() != 0: # Verificate if the user is root
-        print(colored(f"\n[!] Error: This script requires root privileges. Run it as sudo or as root", 'red'))
+    """
+    Verify that the script is executed with root privileges.
+    Exits the program if not run as root.
+    """
+    if os.getuid() != 0:
+        print(colored(
+            "\n[!] Error: This script requires root privileges. "
+            "Run it with 'sudo' or as the root user.", 
+            "red"
+        ))
         exit()
     else:
-        print(colored(f"\n[+] Root privileges verificated, working...\n\n", 'green'))
+        print(colored("[+] Root privileges verified. Proceeding...\n", "green"))
+
 
 def get_interfaces():
-    interfaces = psutil.net_if_addrs().keys() # Library psutil allows us to view the user's network interfaces
+    """
+    Retrieve a list of available network interfaces on the system.
+    
+    Returns:
+        list[str]: List of network interface names.
+    """
+    interfaces = psutil.net_if_addrs().keys()
     return list(interfaces)
 
+
 def is_valid_input(interface, mac_address):
-
-    # Valid case to the input
+    """
+    Validate the provided network interface and MAC address format.
+    
+    Args:
+        interface (str): Network interface name.
+        mac_address (str): Desired MAC address to assign.
+    
+    Returns:
+        bool: True if both the interface and MAC address are valid, False otherwise.
+    """
     current_interfaces = get_interfaces()
-    if interface in current_interfaces:
-        valid_interface = True
-    else:
-        valid_interface = False
+    valid_interface = interface in current_interfaces
 
-    is_valid_mac_address = re.match(r'^([a-fA-Z0-9]{2}[:-]){5}([0-9A-Fa-z]{2})$', mac_address) # Regex/Patern to valid mac_address
+    # MAC address format validation using regex
+    is_valid_mac_address = re.match(r"^([A-Fa-f0-9]{2}[:-]){5}([A-Fa-f0-9]{2})$", mac_address)
     
     return valid_interface and is_valid_mac_address
 
+
 def change_mac_address(interface, mac_address):
-
+    """
+    Change the MAC address of the specified network interface.
+    
+    Args:
+        interface (str): Network interface name.
+        mac_address (str): New MAC address to assign.
+    """
     if is_valid_input(interface, mac_address):
-      # Secure way to execute commands
-      subprocess.run(["ifconfig", interface, "down"]) # Subprocess for restrict command line ([!] Prevent Injection Attacks [!]), disable the network interface
-      subprocess.run(["ifconfig", interface, "hw", "ether", mac_address]) # Switch to the other mac adrress 
-      subprocess.run(["ifconfig", interface, "up"])
+        try:
+            # Safely execute system commands (avoid shell=True)
+            subprocess.run(["ifconfig", interface, "down"], check=True)
+            subprocess.run(["ifconfig", interface, "hw", "ether", mac_address], check=True)
+            subprocess.run(["ifconfig", interface, "up"], check=True)
 
-      print(colored(f"[+] Mac address successfully changed", 'green'))
+            print(colored(f"[+] MAC address successfully changed for {interface} → {mac_address}", "green"))
+        except subprocess.CalledProcessError:
+            print(colored("[!] Failed to change the MAC address. Please check your permissions or interface name.", "red"))
     else:
-        print(colored(f"[!] Data introduced are not correct", 'red'))
+        print(colored("[!] Invalid interface or MAC address format. Please verify your input.", "red"))
+
 
 def main():
-    check_root()
-    args = get_arguments()
-    change_mac_address(args.interface, args.mac_address)
+    """Main program logic."""
+    check_root() # Always check if the user is root (require root permissions)
+    args = get_arguments() # Get arguments by the user
+    change_mac_address(args.interface, args.mac_address) # Finally -> Function to change the mac address
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
