@@ -31,9 +31,9 @@ Clone the repository:
 
 Install dependencies:
 Navigate to the specific project folder you wish to explore. Dependencies (like Scapy or cryptography libraries) can usually be installed using the requirements.txt file within that directory.
-Bash
-
+```Bash
 cd [your_project_folder]
+```
 
     pip install -r requirements.txt
 
