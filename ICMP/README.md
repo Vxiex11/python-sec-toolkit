@@ -1,4 +1,4 @@
-# Host Discovery (ICMP) - 
+# Host Discovery (ICMP) 
 
 A lightweight ICMP host discovery script that pings a single IP or a range in the last octet
 (e.g., *192.168.1.1-100*) using concurrent threads.
