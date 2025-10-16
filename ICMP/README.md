@@ -22,10 +22,10 @@ python3 host_discovery.py -t 192.168.1.1-30 -w 150
 
 # Arguments:
 
--t / --target : Target IP or last-octet range (required). Examples:
+1) -t / --target : Target IP or last-octet range (required). Examples:
   192.168.1.5
   192.168.1.1-50
--w / --workers : Number of concurrent workers (default 100)
+2) -w / --workers : Number of concurrent workers (default 100)
 
 # Example: 
 ```bash
