@@ -16,7 +16,7 @@ import subprocess
 from termcolor import colored
 import psutil
 import os
-
+import sys
 
 def get_arguments():
     """
@@ -53,7 +53,7 @@ def check_root():
             "Run it with 'sudo' or as the root user.", 
             "red"
         ))
-        exit()
+        sys.exit(1)
     else:
         print(colored("[+] Root privileges verified. Proceeding...\n", "green"))
 
