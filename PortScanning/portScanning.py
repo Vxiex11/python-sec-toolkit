@@ -22,6 +22,7 @@ import ssl
 import string
 import sys
 import threading
+import ipaddress
 from concurrent.futures import ThreadPoolExecutor
 from typing import Iterable, List, Tuple, Union
 from termcolor import colored # To add colors
@@ -312,6 +313,21 @@ def parse_ports(ports_str: str) -> Iterable[int]:
         print(colored(f"[!] Invalid port specification: {ve}", "red"))
         sys.exit(1)
 
+def validate_ip(ip_string):
+    """
+    Validate IP Address with library ipaddress
+
+    Args:
+        ip_string: IP address entered by user
+    
+    """
+    try:
+        ipaddress.IPv4Address(ip_string)
+        return True
+    except ipaddress.AddressValueError:
+        print(colored(f"\n[!] ERROR: The inserted IP address is incorrect (Eg. 192.168.1.1)", 'red'))
+        sys.exit(1)
+
 def scan_ports(target: str, ports: Iterable[int], send_head: bool, probe_https: bool, workers: int, timeout: float) -> None:
     """
     Resolve target and launch ThreadPoolExecutor to scan the given ports.
@@ -345,9 +361,9 @@ def scan_ports(target: str, ports: Iterable[int], send_head: bool, probe_https: 
         
 def main() -> None:
     target, ports_str, send_head, probe_https, workers, timeout = get_arguments()
+    validate_ip(target)
     ports = parse_ports(ports_str)
     scan_ports(target, ports, send_head, probe_https, workers, timeout)
-
 
 if __name__ == "__main__":
     print("") # Print a blank line for cleaner terminal output before starting
